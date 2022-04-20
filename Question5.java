@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class Question5
 {
   public static void main(String[] args)
@@ -27,6 +27,35 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
+    int total = in.nextInt();
+    ArrayList <Integer> numbers = new ArrayList <Integer>();
+    for (int x = 0; x < total; x++)
+        {
+          int y = in.nextInt();
+          numbers.add(y);
+    } 
+
+    int maxNumber = -1;
+    int maxApperances = -1;
+
+    for (int i = 0; i < total; i++) {
+
+      int count = 0;
+
+      for (int j = 0; j < total; j++) {
+
+        if (numbers.get(i) == numbers.get(j))
+          count++;
+
+      }
+      
+      if (count > maxApperances)
+        maxNumber = numbers.get(i);
+        maxApperances = count;
+    }
     
+    System.out.println(maxNumber);
+    in.close();
+      
   }
 }
